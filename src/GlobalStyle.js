@@ -15,5 +15,7 @@ export const GlobalStyle = styled.createGlobalStyle`
   body {
     height: 100vh;
     background: ${({ theme }) => theme.lightGrey};
+    display: grid;
+    place-items: center;
   }
 `;
