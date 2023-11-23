@@ -1,3 +1,9 @@
+# Age calculator
+
+Simple age calculator, which will allow to count how much time you've spent on earth since your birth ✌
+
+Currently still in development 👌
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
