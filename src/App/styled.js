@@ -9,7 +9,7 @@ export const Form = styled.form`
 
 export const InputsWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 150px);
+  grid-template-columns: repeat(4, 150px);
   grid-gap: 40px;
 `;
 
@@ -47,4 +47,27 @@ export const StyledLabel = styled.label`
   text-transform: uppercase;
   letter-spacing: 1.5px;
   font-size: 13px;
+`;
+
+export const ButtonContainer = styled.div`
+  margin: 40px 20px 20px;
+  display: grid;
+  justify-items: end;
+`;
+
+export const Line = styled.span`
+  height: 1px;
+  background-color: ${({ theme }) => theme.smokeyGrey};
+  width: 100%;
+`;
+
+export const ButtonWrapper = styled.button`
+  position: absolute;
+  z-index: 2;
+  padding: 15px;
+  border: none;
+  background-color: ${({ theme }) => theme.purple};
+  border-radius: 50px;
+  cursor: pointer;
+  align-self: center;
 `;

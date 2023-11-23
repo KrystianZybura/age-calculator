@@ -1,4 +1,14 @@
-import { Form, InputsWrapper, StyledInput, StyledLabel } from "./styled";
+import {
+  ButtonContainer,
+  ButtonWrapper,
+  Form,
+  InputsWrapper,
+  Line,
+  StyledInput,
+  StyledLabel,
+} from "./styled";
+
+import Arrow from "../assets/arrowIcon.svg?react";
 
 function App() {
   return (
@@ -17,6 +27,12 @@ function App() {
           <StyledInput name="year" type="number" placeholder="YYYY" />
         </StyledLabel>
       </InputsWrapper>
+      <ButtonContainer>
+        <Line />
+        <ButtonWrapper>
+          <Arrow />
+        </ButtonWrapper>
+      </ButtonContainer>
     </Form>
   );
 }
