@@ -1,6 +1,6 @@
 import {
   ButtonContainer,
-  ButtonWrapper,
+  Button,
   Form,
   InputsWrapper,
   Line,
@@ -29,9 +29,9 @@ function App() {
       </InputsWrapper>
       <ButtonContainer>
         <Line />
-        <ButtonWrapper>
+        <Button>
           <Arrow />
-        </ButtonWrapper>
+        </Button>
       </ButtonContainer>
     </Form>
   );

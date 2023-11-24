@@ -61,7 +61,7 @@ export const Line = styled.span`
   width: 100%;
 `;
 
-export const ButtonWrapper = styled.button`
+export const Button = styled.button`
   position: absolute;
   z-index: 2;
   padding: 15px;
