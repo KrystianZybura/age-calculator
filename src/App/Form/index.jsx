@@ -9,6 +9,7 @@ import {
 } from "./styled";
 
 import Arrow from "../assets/arrowIcon.svg?react";
+import Result from "./Result";
 
 const Form = () => (
   <StyledForm>
@@ -32,6 +33,7 @@ const Form = () => (
         <Arrow />
       </Button>
     </ButtonContainer>
+    <Result />
   </StyledForm>
 );
 
