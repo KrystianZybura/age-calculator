@@ -1,6 +1,6 @@
 import { FancyResultText, Output, Wrapper } from "./styled";
 
-const Result = ({ day, month, year }) => {
+const ResultSection = ({ day, month, year }) => {
   return (
     <Wrapper>
       <Output>
@@ -19,4 +19,4 @@ const Result = ({ day, month, year }) => {
   );
 };
 
-export default Result;
+export default ResultSection;

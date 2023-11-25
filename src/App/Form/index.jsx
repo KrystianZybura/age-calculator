@@ -9,8 +9,8 @@ import {
 } from "./styled";
 
 import Arrow from "../assets/arrowIcon.svg?react";
-import Result from "./Result";
 import { useState } from "react";
+import ResultSection from "./ResultSection";
 
 const Form = () => {
   const [inputDate, setInputDate] = useState({
@@ -72,7 +72,7 @@ const Form = () => {
           <Arrow />
         </Button>
       </ButtonContainer>
-      <Result
+      <ResultSection
         day={inputDate.day}
         month={inputDate.month}
         year={inputDate.year}
