@@ -1,18 +1,18 @@
-import { Output, OutputDescriber, ResultPlaceholder, Wrapper } from "./styled";
+import { FancyResultText, Output, Wrapper } from "./styled";
 
 const Result = () => (
   <Wrapper>
     <Output>
-      <ResultPlaceholder /> <ResultPlaceholder />
-      <OutputDescriber>Years</OutputDescriber>
+      <FancyResultText>- -</FancyResultText>
+      <span>Years</span>
     </Output>
     <Output>
-      <ResultPlaceholder /> <ResultPlaceholder />
-      <OutputDescriber>Months</OutputDescriber>
+      <FancyResultText>- -</FancyResultText>
+      <span>Months</span>
     </Output>
     <Output>
-      <ResultPlaceholder /> <ResultPlaceholder />
-      <OutputDescriber>Days</OutputDescriber>
+      <FancyResultText>- -</FancyResultText>
+      <span>Days</span>
     </Output>
   </Wrapper>
 );
