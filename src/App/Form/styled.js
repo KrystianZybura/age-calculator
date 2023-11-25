@@ -50,7 +50,7 @@ export const StyledLabel = styled.label`
 `;
 
 export const ButtonContainer = styled.div`
-  margin: 40px 20px 20px;
+  margin: 40px 0 20px;
   display: grid;
   justify-items: end;
 `;
