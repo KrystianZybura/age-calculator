@@ -1,18 +1,18 @@
 import { FancyResultText, Output, Wrapper } from "./styled";
 
-const ResultSection = ({ day, month, year }) => {
+const ResultSection = ({ result }) => {
   return (
     <Wrapper>
       <Output>
-        <FancyResultText>- -</FancyResultText>
+        <FancyResultText>{result.years ?? "- -"}</FancyResultText>
         <span>Years</span>
       </Output>
       <Output>
-        <FancyResultText>- -</FancyResultText>
+        <FancyResultText>{result.months ?? "- -"}</FancyResultText>
         <span>Months</span>
       </Output>
       <Output>
-        <FancyResultText>- -</FancyResultText>
+        <FancyResultText>{result.days ?? "- -"}</FancyResultText>
         <span>Days</span>
       </Output>
     </Wrapper>

@@ -11,6 +11,7 @@ import {
 import Arrow from "../assets/arrowIcon.svg?react";
 import { useState } from "react";
 import ResultSection from "./ResultSection";
+import { calculateResult } from "./ResultSection/calculateResult";
 
 const Form = () => {
   const [inputDate, setInputDate] = useState({
@@ -19,8 +20,25 @@ const Form = () => {
     year: null,
   });
 
+  const [result, setResult] = useState({
+    years: undefined,
+    months: undefined,
+    days: undefined,
+  });
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    const { years, months, days } = calculateResult(
+      inputDate.year,
+      inputDate.month,
+      inputDate.day
+    );
+
+    setResult({ years, months, days });
+  };
+
   return (
-    <StyledForm onSubmit={(event) => event.preventDefault()}>
+    <StyledForm onSubmit={onFormSubmit}>
       <InputsWrapper>
         <StyledLabel htmlFor="day">
           Day
@@ -72,11 +90,7 @@ const Form = () => {
           <Arrow />
         </Button>
       </ButtonContainer>
-      <ResultSection
-        day={inputDate.day}
-        month={inputDate.month}
-        year={inputDate.year}
-      />
+      <ResultSection result={result} />
     </StyledForm>
   );
 };
