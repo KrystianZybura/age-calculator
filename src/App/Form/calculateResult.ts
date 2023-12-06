@@ -4,7 +4,11 @@ import {
   differenceInDays,
 } from "date-fns";
 
-export const calculateResult = (declaredYear, declaredMonth, declaredDay) => {
+export const calculateResult = (
+  declaredYear: number,
+  declaredMonth: number,
+  declaredDay: number
+) => {
   const currentDate = new Date();
   const declaredDate = new Date(declaredYear, declaredMonth - 1, declaredDay);
 

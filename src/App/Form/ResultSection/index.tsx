@@ -1,3 +1,4 @@
+import React from "react";
 import { FancyResultText, Output, Wrapper } from "./styled";
 
 const ResultSection = ({ result }) => {

@@ -11,22 +11,25 @@ import {
 import Arrow from "../assets/arrowIcon.svg?react";
 import { useState } from "react";
 import ResultSection from "./ResultSection";
-import { calculateResult } from "./ResultSection/calculateResult";
+import { calculateResult } from "./calculateResult";
+import React from "react";
 
 const Form = () => {
-  const [inputDate, setInputDate] = useState({
-    day: null,
-    month: null,
-    year: null,
+  interface Data {
+    day: any;
+    month: any;
+    year: any;
+  }
+
+  const [inputDate, setInputDate] = useState<Data>({
+    day: undefined,
+    month: undefined,
+    year: undefined,
   });
 
-  const [result, setResult] = useState({
-    years: undefined,
-    months: undefined,
-    days: undefined,
-  });
+  const [result, setResult] = useState({});
 
-  const onFormSubmit = (event) => {
+  const onFormSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     const { years, months, days } = calculateResult(
       inputDate.year,
@@ -44,7 +47,10 @@ const Form = () => {
           Day
           <StyledInput
             onChange={({ target }) =>
-              setInputDate((inputDate) => ({ ...inputDate, day: target.value }))
+              setInputDate((inputDate) => ({
+                ...inputDate,
+                day: +target.value,
+              }))
             }
             value={inputDate.day ?? ""}
             name="day"
@@ -59,7 +65,7 @@ const Form = () => {
             onChange={({ target }) =>
               setInputDate((inputDate) => ({
                 ...inputDate,
-                month: target.value,
+                month: +target.value,
               }))
             }
             value={inputDate.month ?? ""}
@@ -74,7 +80,7 @@ const Form = () => {
             onChange={({ target }) =>
               setInputDate((inputDate) => ({
                 ...inputDate,
-                year: target.value,
+                year: +target.value,
               }))
             }
             value={inputDate.year ?? ""}
