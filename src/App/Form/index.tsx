@@ -9,25 +9,31 @@ import {
 } from "./styled";
 
 import Arrow from "../assets/arrowIcon.svg?react";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import ResultSection from "./ResultSection";
 import { calculateResult } from "./calculateResult";
 import React from "react";
+import { ACTIONS } from "./actions";
+import { reducer } from "./reducer";
+
+interface BirthDate {
+  day: number;
+  month: number;
+  year: number;
+}
 
 const Form = () => {
-  interface Data {
-    day: any;
-    month: any;
-    year: any;
-  }
-
-  const [inputDate, setInputDate] = useState<Data>({
-    day: undefined,
-    month: undefined,
-    year: undefined,
+  const [result, dispatch] = useReducer(reducer, {
+    days: null,
+    months: null,
+    years: null,
   });
 
-  const [result, setResult] = useState({});
+  const [inputDate, setInputDate] = useState<BirthDate>({
+    day: null,
+    month: null,
+    year: null,
+  });
 
   const onFormSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
@@ -37,7 +43,10 @@ const Form = () => {
       inputDate.day
     );
 
-    setResult({ years, months, days });
+    dispatch({
+      type: ACTIONS.CALCULATE_LIFETIME,
+      payload: { years, months, days },
+    });
   };
 
   return (
