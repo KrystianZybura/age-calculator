@@ -1,10 +1,5 @@
 import { ACTIONS } from "./actions";
-
-interface Lifetime {
-  days: number;
-  months: number;
-  years: number;
-}
+import { Lifetime } from "./types";
 
 export const reducer = (
   state: Lifetime,

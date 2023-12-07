@@ -15,12 +15,7 @@ import { calculateResult } from "./calculateResult";
 import React from "react";
 import { ACTIONS } from "./actions";
 import { reducer } from "./reducer";
-
-interface BirthDate {
-  day: number;
-  month: number;
-  year: number;
-}
+import { BirthDate } from "./types";
 
 const Form = () => {
   const [result, dispatch] = useReducer(reducer, {
