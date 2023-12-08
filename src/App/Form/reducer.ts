@@ -7,10 +7,6 @@ export const reducer = (
 ) => {
   switch (type) {
     case ACTIONS.CALCULATE_LIFETIME:
-      if (!payload.days || !payload.months || !payload.years) {
-        return state;
-      }
-
       return {
         ...state,
         days: payload.days,

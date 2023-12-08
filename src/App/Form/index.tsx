@@ -58,6 +58,8 @@ const Form = () => {
             }
             value={inputDate.day ?? ""}
             required
+            max={31}
+            min={1}
             name="day"
             type="number"
             placeholder="DD"
@@ -75,6 +77,8 @@ const Form = () => {
             }
             value={inputDate.month ?? ""}
             required
+            min={1}
+            max={12}
             name="month"
             type="number"
             placeholder="MM"
@@ -91,6 +95,7 @@ const Form = () => {
             }
             value={inputDate.year ?? ""}
             required
+            max={new Date().getFullYear()}
             name="year"
             type="number"
             placeholder="YYYY"
