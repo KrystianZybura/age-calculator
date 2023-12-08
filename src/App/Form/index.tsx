@@ -57,6 +57,7 @@ const Form = () => {
               }))
             }
             value={inputDate.day ?? ""}
+            required
             name="day"
             type="number"
             placeholder="DD"
@@ -73,6 +74,7 @@ const Form = () => {
               }))
             }
             value={inputDate.month ?? ""}
+            required
             name="month"
             type="number"
             placeholder="MM"
@@ -88,6 +90,7 @@ const Form = () => {
               }))
             }
             value={inputDate.year ?? ""}
+            required
             name="year"
             type="number"
             placeholder="YYYY"
