@@ -25,17 +25,17 @@ const Form = () => {
   });
 
   const [birthDate, setBirthDate] = useState<BirthDate>({
-    day: null,
-    month: null,
-    year: null,
+    day: "",
+    month: "",
+    year: "",
   });
 
   const onFormSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     const { years, months, days } = calculateResult(
-      birthDate.year,
-      birthDate.month,
-      birthDate.day
+      +birthDate.year,
+      +birthDate.month,
+      +birthDate.day
     );
 
     dispatch({
@@ -53,10 +53,10 @@ const Form = () => {
             onChange={({ target }) =>
               setBirthDate((birthDate) => ({
                 ...birthDate,
-                day: +target.value,
+                day: target.value,
               }))
             }
-            value={birthDate.day ?? ""}
+            value={birthDate.day}
             required
             max={31}
             min={1}
@@ -72,10 +72,10 @@ const Form = () => {
             onChange={({ target }) =>
               setBirthDate((birthDate) => ({
                 ...birthDate,
-                month: +target.value,
+                month: target.value,
               }))
             }
-            value={birthDate.month ?? ""}
+            value={birthDate.month}
             required
             min={1}
             max={12}
@@ -90,10 +90,10 @@ const Form = () => {
             onChange={({ target }) =>
               setBirthDate((birthDate) => ({
                 ...birthDate,
-                year: +target.value,
+                year: target.value,
               }))
             }
-            value={birthDate.year ?? ""}
+            value={birthDate.year}
             required
             max={new Date().getFullYear()}
             name="year"
