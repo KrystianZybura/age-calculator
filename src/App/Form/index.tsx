@@ -24,7 +24,7 @@ const Form = () => {
     years: null,
   });
 
-  const [inputDate, setInputDate] = useState<BirthDate>({
+  const [birthDate, setBirthDate] = useState<BirthDate>({
     day: null,
     month: null,
     year: null,
@@ -33,9 +33,9 @@ const Form = () => {
   const onFormSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     const { years, months, days } = calculateResult(
-      inputDate.year,
-      inputDate.month,
-      inputDate.day
+      birthDate.year,
+      birthDate.month,
+      birthDate.day
     );
 
     dispatch({
@@ -51,12 +51,12 @@ const Form = () => {
           Day
           <StyledInput
             onChange={({ target }) =>
-              setInputDate((inputDate) => ({
-                ...inputDate,
+              setBirthDate((birthDate) => ({
+                ...birthDate,
                 day: +target.value,
               }))
             }
-            value={inputDate.day ?? ""}
+            value={birthDate.day ?? ""}
             required
             max={31}
             min={1}
@@ -70,12 +70,12 @@ const Form = () => {
           Month
           <StyledInput
             onChange={({ target }) =>
-              setInputDate((inputDate) => ({
-                ...inputDate,
+              setBirthDate((birthDate) => ({
+                ...birthDate,
                 month: +target.value,
               }))
             }
-            value={inputDate.month ?? ""}
+            value={birthDate.month ?? ""}
             required
             min={1}
             max={12}
@@ -88,12 +88,12 @@ const Form = () => {
           Year
           <StyledInput
             onChange={({ target }) =>
-              setInputDate((inputDate) => ({
-                ...inputDate,
+              setBirthDate((birthDate) => ({
+                ...birthDate,
                 year: +target.value,
               }))
             }
-            value={inputDate.year ?? ""}
+            value={birthDate.year ?? ""}
             required
             max={new Date().getFullYear()}
             name="year"
