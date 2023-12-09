@@ -9,33 +9,25 @@ import {
 } from "./styled";
 
 import Arrow from "../assets/arrowIcon.svg?react";
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import ResultSection from "./ResultSection";
 import { calculateResult } from "./calculateResult";
 import React from "react";
 import { ACTIONS } from "./actions";
 import { reducer } from "./reducer";
-import { BirthDate } from "./types";
 
 const Form = () => {
-  const [result, dispatch] = useReducer(reducer, {
-    days: null,
-    months: null,
-    years: null,
-  });
-
-  const [birthDate, setBirthDate] = useState<BirthDate>({
-    day: "",
-    month: "",
-    year: "",
+  const [{ lifetime, birthdate }, dispatch] = useReducer(reducer, {
+    lifetime: { days: null, months: null, years: null },
+    birthdate: { day: "", month: "", year: "" },
   });
 
   const onFormSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     const { years, months, days } = calculateResult(
-      +birthDate.year,
-      +birthDate.month,
-      +birthDate.day
+      +birthdate.year,
+      +birthdate.month,
+      +birthdate.day
     );
 
     dispatch({
@@ -51,12 +43,12 @@ const Form = () => {
           Day
           <StyledInput
             onChange={({ target }) =>
-              setBirthDate((birthDate) => ({
-                ...birthDate,
-                day: target.value,
-              }))
+              dispatch({
+                type: ACTIONS.SET_BIRTHDAY,
+                payload: { day: target.value },
+              })
             }
-            value={birthDate.day}
+            value={birthdate.day}
             required
             max={31}
             min={1}
@@ -70,12 +62,12 @@ const Form = () => {
           Month
           <StyledInput
             onChange={({ target }) =>
-              setBirthDate((birthDate) => ({
-                ...birthDate,
-                month: target.value,
-              }))
+              dispatch({
+                type: ACTIONS.SET_BIRTHMONTH,
+                payload: { month: target.value },
+              })
             }
-            value={birthDate.month}
+            value={birthdate.month}
             required
             min={1}
             max={12}
@@ -88,12 +80,12 @@ const Form = () => {
           Year
           <StyledInput
             onChange={({ target }) =>
-              setBirthDate((birthDate) => ({
-                ...birthDate,
-                year: target.value,
-              }))
+              dispatch({
+                type: ACTIONS.SET_BIRTHYEAR,
+                payload: { year: target.value },
+              })
             }
-            value={birthDate.year}
+            value={birthdate.year}
             required
             max={new Date().getFullYear()}
             name="year"
@@ -108,8 +100,9 @@ const Form = () => {
           <Arrow />
         </Button>
       </ButtonContainer>
-      <ResultSection result={result} />
+      <ResultSection result={lifetime} />
     </StyledForm>
   );
 };
+
 export default Form;
