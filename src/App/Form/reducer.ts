@@ -1,9 +1,9 @@
 import { ACTIONS } from "./actions";
-import { State } from "./types";
+import { Payload, State } from "./types";
 
 export const reducer = (
   state: State,
-  { type, payload }: { type: string; payload: any }
+  { type, payload }: { type: string; payload: Payload }
 ) => {
   switch (type) {
     case ACTIONS.CALCULATE_LIFETIME:
