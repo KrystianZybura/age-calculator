@@ -20,6 +20,7 @@ const Form = () => {
   const [{ lifetime, birthdate }, dispatch] = useReducer(reducer, {
     lifetime: { days: null, months: null, years: null },
     birthdate: { day: "", month: "", year: "" },
+    isError: { invalidDay: false, invalidMonth: false, invalidYear: false },
   });
 
   const onFormSubmit = (event: { preventDefault: () => void }) => {
@@ -48,7 +49,7 @@ const Form = () => {
                 payload: { day: target.value },
               })
             }
-            value={birthdate.day}
+            value={birthdate.day.toString()}
             required
             max={31}
             min={1}
@@ -67,7 +68,7 @@ const Form = () => {
                 payload: { month: target.value },
               })
             }
-            value={birthdate.month}
+            value={birthdate.month.toString()}
             required
             min={1}
             max={12}
@@ -85,7 +86,7 @@ const Form = () => {
                 payload: { year: target.value },
               })
             }
-            value={birthdate.year}
+            value={birthdate.year.toString()}
             required
             max={new Date().getFullYear()}
             name="year"
