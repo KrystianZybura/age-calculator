@@ -49,7 +49,7 @@ const Form = () => {
                 payload: { day: target.value },
               })
             }
-            value={birthdate.day.toString()}
+            value={birthdate.day}
             required
             max={31}
             min={1}
@@ -68,7 +68,7 @@ const Form = () => {
                 payload: { month: target.value },
               })
             }
-            value={birthdate.month.toString()}
+            value={birthdate.month}
             required
             min={1}
             max={12}
@@ -86,7 +86,7 @@ const Form = () => {
                 payload: { year: target.value },
               })
             }
-            value={birthdate.year.toString()}
+            value={birthdate.year}
             required
             min={1900}
             max={new Date().getFullYear()}

@@ -20,9 +20,10 @@ export const reducer = (
       return {
         ...state,
         birthdate: {
-          day: payload.day || payload.day === "" || state.birthdate.day,
-          month: payload.month || payload.month === "" || state.birthdate.month,
-          year: payload.year || payload.year === "" || state.birthdate.year,
+          day: payload.day === "" ? "" : payload.day || state.birthdate.day,
+          month:
+            payload.month === "" ? "" : payload.month || state.birthdate.month,
+          year: payload.year === "" ? "" : payload.year || state.birthdate.year,
         },
       };
 
