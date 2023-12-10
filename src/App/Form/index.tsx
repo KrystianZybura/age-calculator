@@ -44,7 +44,7 @@ const Form = () => {
           <StyledInput
             onChange={({ target }) =>
               dispatch({
-                type: ACTIONS.SET_BIRTHDAY,
+                type: ACTIONS.SET_BIRTHDATE,
                 payload: { day: target.value },
               })
             }
@@ -63,7 +63,7 @@ const Form = () => {
           <StyledInput
             onChange={({ target }) =>
               dispatch({
-                type: ACTIONS.SET_BIRTHMONTH,
+                type: ACTIONS.SET_BIRTHDATE,
                 payload: { month: target.value },
               })
             }
@@ -81,7 +81,7 @@ const Form = () => {
           <StyledInput
             onChange={({ target }) =>
               dispatch({
-                type: ACTIONS.SET_BIRTHYEAR,
+                type: ACTIONS.SET_BIRTHDATE,
                 payload: { year: target.value },
               })
             }

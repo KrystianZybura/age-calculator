@@ -16,36 +16,15 @@ export const reducer = (
         },
       };
 
-    case ACTIONS.SET_BIRTHDAY:
+    case ACTIONS.SET_BIRTHDATE:
       return {
         ...state,
         birthdate: {
-          day: payload.day,
-          month: state.birthdate.month,
-          year: state.birthdate.year,
+          day: payload.day || state.birthdate.day,
+          month: payload.month || state.birthdate.month,
+          year: payload.year || state.birthdate.year,
         },
       };
-
-    case ACTIONS.SET_BIRTHMONTH:
-      return {
-        ...state,
-        birthdate: {
-          day: state.birthdate.day,
-          month: payload.month,
-          year: state.birthdate.year,
-        },
-      };
-
-    case ACTIONS.SET_BIRTHYEAR: {
-      return {
-        ...state,
-        birthdate: {
-          day: state.birthdate.day,
-          month: state.birthdate.month,
-          year: payload.year,
-        },
-      };
-    }
 
     default:
       return state;
