@@ -88,6 +88,7 @@ const Form = () => {
             }
             value={birthdate.year.toString()}
             required
+            min={1900}
             max={new Date().getFullYear()}
             name="year"
             type="number"
