@@ -3,11 +3,12 @@
     "jsx": "react",
     "outDir": "./build",
     "allowJs": true,
-    "target": "es5",
+    "target": "es2017",
     "skipLibCheck": true,
     "types": ["vite-plugin-svgr/client"],
     "strict": false,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "moduleResolution": "node"
   },
   "include": ["./src/**/*", "src/components", "src/custom.d.ts"]
 }
