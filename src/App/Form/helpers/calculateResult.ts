@@ -3,9 +3,7 @@ import {
   differenceInMonths,
   differenceInDays,
 } from "date-fns";
-
-const isLeapYear = (year: number) =>
-  (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+import { isLeapYear } from "./isLeapYear";
 
 export const calculateResult = (
   declaredYear: number,
