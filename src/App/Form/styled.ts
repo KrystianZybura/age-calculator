@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { StyledComponentsProps } from "./helpers/types";
 
 export const StyledForm = styled.form`
   background: ${({ theme }) => theme.white};
@@ -36,6 +37,23 @@ export const StyledInput = styled.input`
   &:focus-visible {
     outline-color: ${({ theme }) => theme.purple};
   }
+`;
+
+export const InvalidInputText = styled.span<StyledComponentsProps>`
+  display: none;
+  color: ${({ theme }) => theme.lightRed};
+  font-style: italic;
+  font-weight: normal;
+  text-transform: none;
+  font-size: 12px;
+  margin-top: 10px;
+  letter-spacing: normal;
+
+  ${({ $invalid }) =>
+    $invalid &&
+    css`
+      display: inline;
+    `}
 `;
 
 export const StyledLabel = styled.label`
