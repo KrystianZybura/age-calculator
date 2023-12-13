@@ -20,7 +20,7 @@ export const InputsWrapper = styled.div`
   grid-gap: 40px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(70px, 1fr));
     grid-gap: 20px;
   }
 `;
@@ -55,7 +55,7 @@ export const StyledInput = styled.input<StyledComponentsProps>`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     padding: 13px;
-    font-size: 18px;
+    font-size: 16px;
   }
 
   ${({ $invalid }) =>
