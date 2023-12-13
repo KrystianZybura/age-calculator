@@ -14,5 +14,5 @@ export const Output = styled.div`
 `;
 
 export const FancyResultText = styled.span`
-  color: ${({ theme }) => theme.purple};
+  color: ${({ theme }) => theme.colors.purple};
 `;
