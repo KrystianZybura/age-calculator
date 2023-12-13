@@ -6,22 +6,33 @@ import {
   Line,
   StyledInput,
   StyledLabel,
+  InvalidInputText,
 } from "./styled";
 
 import Arrow from "../assets/arrowIcon.svg?react";
 import { useReducer } from "react";
 import ResultSection from "./ResultSection";
-import { calculateResult } from "./calculateResult";
+import { calculateResult } from "./helpers/calculateResult";
 import React from "react";
-import { ACTIONS } from "./actions";
+import { ACTIONS } from "./helpers/actions";
 import { reducer } from "./reducer";
 
 const Form = () => {
-  const [{ lifetime, birthdate }, dispatch] = useReducer(reducer, {
+  const [{ lifetime, birthdate, isFormValid }, dispatch] = useReducer(reducer, {
     lifetime: { days: null, months: null, years: null },
     birthdate: { day: "", month: "", year: "" },
-    isError: { invalidDay: false, invalidMonth: false, invalidYear: false },
+    isFormValid: {
+      dayField: undefined,
+      monthField: undefined,
+      yearField: undefined,
+    },
   });
+
+  console.log(
+    isFormValid.dayField,
+    isFormValid.monthField,
+    isFormValid.yearField
+  );
 
   const onFormSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
@@ -32,13 +43,18 @@ const Form = () => {
     );
 
     dispatch({
+      type: ACTIONS.VALIDATE_FORM,
+      payload: {},
+    });
+
+    dispatch({
       type: ACTIONS.CALCULATE_LIFETIME,
       payload: { years, months, days },
     });
   };
 
   return (
-    <StyledForm onSubmit={onFormSubmit}>
+    <StyledForm onSubmit={onFormSubmit} noValidate>
       <InputsWrapper>
         <StyledLabel htmlFor="day">
           Day
@@ -58,6 +74,9 @@ const Form = () => {
             placeholder="DD"
             autoFocus
           />
+          <InvalidInputText $invalid={isFormValid.dayField !== true}>
+            {isFormValid.dayField !== true ? isFormValid.dayField : ""}
+          </InvalidInputText>
         </StyledLabel>
         <StyledLabel htmlFor="month">
           Month
@@ -76,6 +95,9 @@ const Form = () => {
             type="number"
             placeholder="MM"
           />
+          <InvalidInputText $invalid={isFormValid.monthField !== true}>
+            {isFormValid.monthField !== true ? isFormValid.monthField : ""}
+          </InvalidInputText>
         </StyledLabel>
         <StyledLabel htmlFor="year">
           Year
@@ -94,6 +116,9 @@ const Form = () => {
             type="number"
             placeholder="YYYY"
           />
+          <InvalidInputText $invalid={isFormValid.yearField !== true}>
+            {isFormValid.yearField !== true ? isFormValid.yearField : ""}
+          </InvalidInputText>
         </StyledLabel>
       </InputsWrapper>
       <ButtonContainer>
