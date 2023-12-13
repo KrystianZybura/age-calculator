@@ -2,7 +2,7 @@
 
 Simple age calculator, which will allow to count how much time you've spent on earth since your birth ✌
 
-Currently still in development 👌
+Almost finished 👌
 
 ## Demo
 
