@@ -7,9 +7,9 @@ import {
   StyledInput,
   StyledLabel,
   InvalidInputText,
+  Arrow,
 } from "./styled";
 
-import Arrow from "../assets/arrowIcon.svg?react";
 import { useReducer } from "react";
 import ResultSection from "./ResultSection";
 import { calculateResult } from "./helpers/calculateResult";

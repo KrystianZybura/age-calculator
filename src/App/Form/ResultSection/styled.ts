@@ -11,6 +11,11 @@ export const Output = styled.div`
   font-size: 60px;
   font-style: italic;
   font-weight: 700;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 40px;
+    grid-gap: 15px;
+  }
 `;
 
 export const FancyResultText = styled.span`

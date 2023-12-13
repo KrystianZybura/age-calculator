@@ -1,17 +1,28 @@
 import styled, { css } from "styled-components";
 import { StyledComponentsProps } from "./helpers/types";
+import ArrowSVG from "../assets/arrowIcon.svg?react";
 
 export const StyledForm = styled.form`
   background: ${({ theme }) => theme.colors.white};
   padding: 40px;
   border-radius: 20px 20px 60px 20px;
   color: ${({ theme }) => theme.colors.offBlack};
+  margin: 10px 20px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    padding: 40px 20px;
+  }
 `;
 
 export const InputsWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 150px);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 40px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
 `;
 
 export const StyledLabel = styled.label<StyledComponentsProps>`
@@ -23,6 +34,10 @@ export const StyledLabel = styled.label<StyledComponentsProps>`
   text-transform: uppercase;
   letter-spacing: 1.5px;
   font-size: 13px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 11px;
+  }
 
   ${({ $invalid }) =>
     $invalid &&
@@ -37,7 +52,11 @@ export const StyledInput = styled.input<StyledComponentsProps>`
   font-weight: bold;
   font-size: 23px;
   border: 1px solid ${({ theme }) => theme.colors.lightGrey};
-  appearance: "textfield";
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    padding: 13px;
+    font-size: 18px;
+  }
 
   ${({ $invalid }) =>
     $invalid &&
@@ -72,6 +91,11 @@ export const InvalidInputText = styled.span<StyledComponentsProps>`
   margin-top: 10px;
   letter-spacing: normal;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 9px;
+    margin-top: 5px;
+  }
+
   ${({ $invalid }) =>
     $invalid &&
     css`
@@ -98,6 +122,17 @@ export const Button = styled.button`
   border: none;
   background-color: ${({ theme }) => theme.colors.purple};
   border-radius: 50px;
-  cursor: pointer;
   align-self: center;
+  cursor: pointer;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    justify-self: center;
+  }
+`;
+
+export const Arrow = styled(ArrowSVG)`
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    width: 30px;
+    height: 25px;
+  }
 `;
