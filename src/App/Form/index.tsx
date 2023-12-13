@@ -28,12 +28,6 @@ const Form = () => {
     },
   });
 
-  console.log(
-    isFormValid.dayField,
-    isFormValid.monthField,
-    isFormValid.yearField
-  );
-
   const onFormSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     const { years, months, days } = calculateResult(
