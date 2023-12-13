@@ -22,9 +22,9 @@ const Form = () => {
     lifetime: { days: null, months: null, years: null },
     birthdate: { day: "", month: "", year: "" },
     isFormValid: {
-      dayField: undefined,
-      monthField: undefined,
-      yearField: undefined,
+      dayField: true,
+      monthField: true,
+      yearField: true,
     },
   });
 
@@ -56,9 +56,10 @@ const Form = () => {
   return (
     <StyledForm onSubmit={onFormSubmit} noValidate>
       <InputsWrapper>
-        <StyledLabel htmlFor="day">
+        <StyledLabel $invalid={isFormValid.dayField !== true} htmlFor="day">
           Day
           <StyledInput
+            $invalid={isFormValid.dayField !== true}
             onChange={({ target }) =>
               dispatch({
                 type: ACTIONS.SET_BIRTHDATE,
@@ -78,9 +79,10 @@ const Form = () => {
             {isFormValid.dayField !== true ? isFormValid.dayField : ""}
           </InvalidInputText>
         </StyledLabel>
-        <StyledLabel htmlFor="month">
+        <StyledLabel $invalid={isFormValid.monthField !== true} htmlFor="month">
           Month
           <StyledInput
+            $invalid={isFormValid.monthField !== true}
             onChange={({ target }) =>
               dispatch({
                 type: ACTIONS.SET_BIRTHDATE,
@@ -99,9 +101,10 @@ const Form = () => {
             {isFormValid.monthField !== true ? isFormValid.monthField : ""}
           </InvalidInputText>
         </StyledLabel>
-        <StyledLabel htmlFor="year">
+        <StyledLabel $invalid={isFormValid.yearField !== true} htmlFor="year">
           Year
           <StyledInput
+            $invalid={isFormValid.yearField !== true}
             onChange={({ target }) =>
               dispatch({
                 type: ACTIONS.SET_BIRTHDATE,

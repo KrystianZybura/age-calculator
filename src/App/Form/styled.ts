@@ -14,13 +14,36 @@ export const InputsWrapper = styled.div`
   grid-gap: 40px;
 `;
 
-export const StyledInput = styled.input`
+export const StyledLabel = styled.label<StyledComponentsProps>`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: ${({ theme }) => theme.smokeyGrey};
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 13px;
+
+  ${({ $invalid }) =>
+    $invalid &&
+    css`
+      color: ${({ theme }) => theme.lightRed};
+    `}
+`;
+
+export const StyledInput = styled.input<StyledComponentsProps>`
   padding: 17px;
   border-radius: 7px;
   font-weight: bold;
   font-size: 23px;
   border: 1px solid ${({ theme }) => theme.lightGrey};
   appearance: "textfield";
+
+  ${({ $invalid }) =>
+    $invalid &&
+    css`
+      border-color: ${({ theme }) => theme.lightRed};
+    `}
 
   &[type="number"] {
     -moz-appearance: textfield;
@@ -54,17 +77,6 @@ export const InvalidInputText = styled.span<StyledComponentsProps>`
     css`
       display: inline;
     `}
-`;
-
-export const StyledLabel = styled.label`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  color: ${({ theme }) => theme.smokeyGrey};
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-size: 13px;
 `;
 
 export const ButtonContainer = styled.div`
