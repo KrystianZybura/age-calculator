@@ -2,8 +2,6 @@
 
 Simple age calculator, which will allow to count how much time you've spent on earth since your birth ✌
 
-Almost finished 👌
-
 ## Demo
 
 You can check my website here ----> [Age calculator](https://krystianzybura.github.io/age-calculator/)
