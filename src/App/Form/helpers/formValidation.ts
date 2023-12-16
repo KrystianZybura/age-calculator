@@ -1,10 +1,6 @@
 import { isLeapYear } from "./isLeapYear";
 
 export const isDayValid = (day: number, month: number, year: number) => {
-  if (day === 0) {
-    return "Must be a valid day";
-  }
-
   if (!day) {
     return "This field is required";
   }
@@ -13,46 +9,35 @@ export const isDayValid = (day: number, month: number, year: number) => {
     return "Must be a valid day";
   }
 
-  if (!month) {
-    return true;
+  if (month) {
+    switch (month) {
+      case 2:
+        const daysInMonth = isLeapYear(year) ? 29 : 28;
+        if (day < 1 || day > daysInMonth) {
+          return "Must be a valid day";
+        }
+        break;
+
+      case 4:
+      case 6:
+      case 9:
+      case 11:
+        if (day < 1 || day > 30) {
+          return "Must be a valid day";
+        }
+        break;
+
+      default:
+        if (day > 31) {
+          return "Must be a valid day";
+        }
+    }
   }
 
-  switch (month) {
-    case 2:
-      const daysInMonth = isLeapYear(year) ? 29 : 28;
-      if (day < 1 || day > daysInMonth) {
-        return "Must be a valid day";
-      }
-
-    case 4:
-    case 6:
-    case 9:
-    case 11:
-      if (day < 1 || day > 30) {
-        return "Must be a valid day";
-      }
-
-    case 1:
-    case 3:
-    case 5:
-    case 7:
-    case 8:
-    case 10:
-    case 12:
-      if (day < 1 || day > 31) {
-        return "Must be a valid day";
-      }
-
-    default:
-      return true;
-  }
+  return true;
 };
 
 export const isMonthValid = (month: number) => {
-  if (month === 0) {
-    return "Must be a valid month";
-  }
-
   if (!month) {
     return "This field is required";
   }
