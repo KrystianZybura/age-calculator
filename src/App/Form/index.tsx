@@ -124,7 +124,11 @@ const Form = () => {
           <Arrow />
         </Button>
       </ButtonContainer>
-      <ResultSection result={lifetime} />
+      <ResultSection
+        days={lifetime.days}
+        months={lifetime.months}
+        years={lifetime.years}
+      />
     </StyledForm>
   );
 };
